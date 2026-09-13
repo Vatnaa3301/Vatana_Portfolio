@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vatana — Full-Stack Developer & Software Engineer</title>
+    <meta name="description" content="Portfolio of Vatana, Year 3 Information Technology Student at Beltei International University & Full-Stack Developer specializing in Laravel, React, ASP.NET Core, Django, and modern web applications.">
+    <script>
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Khmer:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="intro.js" defer></script>
+</head>
+<body class="intro-active">
+    <!-- Cinematic Intro Greeting Animation (Khmer -> English -> Reveal Website) -->
+    <div id="introOverlay" class="intro-overlay" aria-hidden="false">
+        <div class="intro-bg-ambient"></div>
+        <div class="intro-content">
+            <div class="intro-word-container">
+                <span class="intro-word intro-word--khmer" id="introKhmer">សួស្តី</span>
+                <span class="intro-word intro-word--english" id="introEnglish">Hello</span>
+            </div>
+        </div>
+    </div>
+    <!-- Native Full-Screen Hero Background Video (Direct Hardware Decode, Zero Lag) -->
+    <div id="hero-media-container" class="hero-media-container" aria-hidden="true">
+        <video id="heroVideo" class="hero-video" autoplay loop muted playsinline preload="auto" disablePictureInPicture>
+            <source src="media/13540442_1920_1080_30fps.mp4" type="video/mp4">
+        </video>
+        <!-- Ambient Depth Vignette Overlay -->
+        <div class="hero-glow-overlay"></div>
+    </div>
+
+    <!-- Minimalist Floating Navigation -->
+    <header class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo" id="nav-logo">
+            <span class="logo-dot"></span>
+            <span class="logo-text">VATANA</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <span class="nav-indicator-line" id="navIndicatorLine"></span>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#services" class="nav-link">Capabilities</a>
+            <a href="#contact" class="nav-link nav-link-cta">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" aria-pressed="false">
+                <svg class="theme-icon theme-icon--sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                </svg>
+                <svg class="theme-icon theme-icon--moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+        <div class="mobile-nav-content">
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link"><span class="mobile-nav-num">00</span> Hero</a>
+                <a href="#projects" class="mobile-nav-link"><span class="mobile-nav-num">01</span> Projects</a>
+                <a href="#about" class="mobile-nav-link"><span class="mobile-nav-num">02</span> About</a>
+                <a href="#skills" class="mobile-nav-link"><span class="mobile-nav-num">03</span> Skills</a>
+                <a href="#services" class="mobile-nav-link"><span class="mobile-nav-num">04</span> Capabilities</a>
+                <a href="#contact" class="mobile-nav-link mobile-nav-cta"><span class="mobile-nav-num">05</span> Contact</a>
+            </nav>
+        </div>
+    </div>
+ 
+    <!-- Vertical Interactive Scroll Indicator (Left Rail) -->
+    <nav class="scroll-rail" id="scrollRail" aria-label="Section Navigation">
+        <div class="rail-counter">
+            <span class="rail-num-active" id="railActiveNum">00</span>
+            <span class="rail-num-divider">/</span>
+            <span class="rail-num-total">05</span>
+        </div>
+
+        <div class="rail-track" id="railTrack">
+            <div class="rail-track-fill" id="railTrackFill"></div>
+            
+            <a href="#hero" class="rail-dot active" data-index="0" data-num="00" data-label="Hero" aria-label="Section 00: Hero">
+                <span class="rail-tooltip">Hero</span>
+            </a>
+            <a href="#projects" class="rail-dot" data-index="1" data-num="01" data-label="Projects" aria-label="Section 01: Projects">
+                <span class="rail-tooltip">Projects</span>
+            </a>
+            <a href="#about" class="rail-dot" data-index="2" data-num="02" data-label="About" aria-label="Section 02: About">
+                <span class="rail-tooltip">About</span>
+            </a>
+            <a href="#skills" class="rail-dot" data-index="3" data-num="03" data-label="Skills" aria-label="Section 03: Skills">
+                <span class="rail-tooltip">Skills</span>
+            </a>
+            <a href="#services" class="rail-dot" data-index="4" data-num="04" data-label="Capabilities" aria-label="Section 04: Capabilities">
+                <span class="rail-tooltip">Capabilities</span>
+            </a>
+            <a href="#contact" class="rail-dot" data-index="5" data-num="05" data-label="Contact" aria-label="Section 05: Contact">
+                <span class="rail-tooltip">Contact</span>
+            </a>
+        </div>
+
+        <div class="rail-label" id="railActiveLabel">HERO</div>
+    </nav>
+
+    <!-- Main Scrollable Content -->
+    <main class="page-container">
+        <!-- Hero Section (Takes 100vh with cinematic video backdrop) -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content" id="heroContent">
+        
+                <h1 class="hero-floating-title">
+                    <span class="hero-title-greeting">Hello, I'm</span>
+                    <span class="hero-title-name">Vatana</span>
+                </h1>
+                <p class="hero-floating-subtitle">Full-Stack Developer &amp; Software Engineer</p>
+                <div class="hero-cta-group">
+                    <a href="#projects" class="hero-cta-btn hero-cta-btn--primary">
+                        <span>View Selected Works</span>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                    <a href="#contact" class="hero-cta-btn hero-cta-btn--ghost">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="#projects" class="hero-scroll-indicator" id="heroScrollIndicator" aria-label="Scroll to featured projects">
+                <span class="scroll-indicator-mouse">
+                    <span class="scroll-indicator-wheel"></span>
+                </span>
+                <span class="scroll-indicator-text">Scroll to explore</span>
+            </a>
+        </section>
+
+        <!-- Section 01: Selected Works -->
+        <section id="projects" class="content-section">
+            <!-- 3D Lanyard Card hanging from the top border on the right -->
+            <div id="lanyard-sidebar" class="lanyard-sidebar-container">
+                <div id="lanyard-root" class="lanyard-wrapper"></div>
+            </div>
+
+            <div class="section-container">
+                <div class="section-header reveal-item">
+                    <span class="section-tag">01 / FEATURED PROJECTS</span>
+                    <h2 class="section-title">Some of my Projects</h2>
+                    <p class="section-desc">A curated selection of full-stack web applications, point-of-sale systems, and university software projects.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 01: Vaultpaper -->
+                    <article class="project-card reveal-item">
+                        <div class="project-img-wrapper">
+                            <picture>
+                                <source srcset="projectIMG/Vualtpaper.webp" type="image/webp">
+                                <img src="projectIMG/Vualtpaper.png" alt="Vaultpaper Wallpaper Download Platform Preview" class="project-img" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="project-header">
+                            <span class="project-num">01</span>
+                            <span class="project-badge">Production Web App</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Vaultpaper</h3>
+                            <p class="project-subtitle">Wallpaper Marketplace & Media Platform</p>
+                            <p class="project-description">
+                                A modern wallpaper discovery and download platform engineered with a clean collection grid, per-wallpaper detail pages, admin upload panel, and a streamlined download flow designed.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Tailwind CSS</span>
+                                <span class="tag">Vercel</span>
+                                <span class="tag">Neon DB</span>
+                                <span class="tag">Cloudflare R3</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="preview-callout-wrapper">
+                                <a href="https://vaultpaper-two.vercel.app/" target="_blank" rel="noopener noreferrer" class="preview-link preview-link-first" id="vaultpaperPreviewBtn">
+                                    <span>Preview</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+
+                                    <!-- Corner Vibration / Alert Waves (Top-Left and Bottom-Right) with Running Loop Lines -->
+                                    <span class="corner-alert-wave wave--tl" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <!-- Faint tracks -->
+                                            <path d="M 3 22 A 19 19 0 0 1 22 3" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.6" stroke-linecap="round" class="arc-track"/>
+                                            <path d="M 7 22 A 15 15 0 0 1 22 7" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.6" stroke-linecap="round" class="arc-track"/>
+                                            <!-- Running white lines (short -> go far -> short again) -->
+                                            <path d="M 3 22 A 19 19 0 0 1 22 3" pathLength="100" stroke="#ffffff" stroke-width="2" stroke-linecap="round" class="arc-running arc-outer"/>
+                                            <path d="M 7 22 A 15 15 0 0 1 22 7" pathLength="100" stroke="#ffffff" stroke-width="2" stroke-linecap="round" class="arc-running arc-inner"/>
+                                        </svg>
+                                    </span>
+                                    <span class="corner-alert-wave wave--br" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <!-- Faint tracks -->
+                                            <path d="M 3 22 A 19 19 0 0 1 22 3" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.6" stroke-linecap="round" class="arc-track"/>
+                                            <path d="M 7 22 A 15 15 0 0 1 22 7" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.6" stroke-linecap="round" class="arc-track"/>
+                                            <!-- Running white lines (short -> go far -> short again) -->
+                                            <path d="M 3 22 A 19 19 0 0 1 22 3" pathLength="100" stroke="#ffffff" stroke-width="2" stroke-linecap="round" class="arc-running arc-outer"/>
+                                            <path d="M 7 22 A 15 15 0 0 1 22 7" pathLength="100" stroke="#ffffff" stroke-width="2" stroke-linecap="round" class="arc-running arc-inner"/>
+                                        </svg>
+                                    </span>
+
+                                    <!-- Top-Right Pointing Arrow (Spaced gracefully above button, no floating text) -->
+                                    <span class="corner-pointer-arrow" id="cornerPointerArrow" aria-hidden="true">
+                                        <svg class="pointer-arrow-svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                            <!-- Arrow shaft -->
+                                            <path d="M 23 5 L 8 20" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" class="pointer-arrow-shaft"/>
+                                            <!-- Arrowhead pointing down-left towards button -->
+                                            <path d="M 17 20 L 8 20 L 8 11" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pointer-arrow-head"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 02: CafePOS -->
+                    <article class="project-card reveal-item">
+                        <div class="project-img-wrapper">
+                            <picture>
+                                <source srcset="projectIMG/CafePOS.webp" type="image/webp">
+                                <img src="projectIMG/CafePOS.png" alt="Café POS System Preview" class="project-img" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="project-header">
+                            <span class="project-num">02</span>
+                            <span class="project-badge">Full-Stack POS</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Café POS System</h3>
+                            <p class="project-subtitle">Point-of-Sale with Telegram & Bakong KHQR</p>
+                            <p class="project-description">
+                                A Laravel-powered point-of-sale solution featuring automated order processing, Telegram Bot notifications for live sales alerts, and integrated Bakong KHQR digital payment workflows.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">Bakong KHQR</span>
+                                <span class="tag">Telegram API</span>
+                                <span class="tag">Neon DB</span>
+                                <span class="tag">Cloudflare r3</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://cafe-system-wheat.vercel.app/login" target="_blank" rel="noopener noreferrer" class="preview-link">
+                                <span>Preview</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 03: Ticket_System -->
+                    <article class="project-card reveal-item">
+                        <div class="project-img-wrapper">
+                            <picture>
+                                <source srcset="projectIMG/Ticket_System.webp" type="image/webp">
+                                <img src="projectIMG/Ticket_System.png" alt="Support Ticket System Preview" class="project-img" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="project-header">
+                            <span class="project-num">03</span>
+                            <span class="project-badge">University Project</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Django Help Desk</h3>
+                            <p class="project-subtitle">Support Ticket System & Kanban Board</p>
+                            <p class="project-description">
+                                A collaborative support ticket tracking system featuring an intuitive Kanban board interface inspired by Discord, Slack, and Jira. Built with live-updating comments via htmx polling, Resend email alerts, and Cloudflare R2 media storage.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Django</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Neon DB</span>
+                                <span class="tag">Resend</span>
+                                <span class="tag">Cloudflare R2</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://ticket-system-managment.vercel.app/" target="_blank" rel="noopener noreferrer" class="preview-link">
+                                <span>Preview</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 04: Donuts -->
+                    <article class="project-card reveal-item">
+                        <div class="project-img-wrapper">
+                            <picture>
+                                <source srcset="projectIMG/DonutStore.webp" type="image/webp">
+                                <img src="projectIMG/DonutStore.png" alt="Donutland E-Commerce Platform Preview" class="project-img" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="project-header">
+                            <span class="project-num">04</span>
+                            <span class="project-badge">Enterprise Web API</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Donutland</h3>
+                            <p class="project-subtitle">Full-Stack E-Commerce & Custom Design System</p>
+                            <p class="project-description">
+                                Full-stack donut shop web app powered by an ASP.NET Core Web API with SQL Server backend (EF Core Identity, role-based authorization) and a React/TypeScript/Tailwind frontend featuring custom SVG illustrations with seeded randomization and reusable goo-filter drip banners.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">ASP.NET Core</span>
+                                <span class="tag">SQL Server</span>
+                                <span class="tag">React</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://donut-store.onrender.com" target="_blank" rel="noopener noreferrer" class="preview-link">
+                                <span>Preview</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 02: About & Philosophy -->
+        <section id="about" class="content-section about-section">
+            <div class="section-container">
+                <div class="about-grid">
+                    <div class="about-left reveal-item">
+                        <span class="section-tag">02 / ABOUT ME</span>
+                        <h2 class="section-title">Obsessed with the details most people skip.</h2>
+                        
+                        <div class="stats-row">
+                            <div class="stat-card reveal-item">
+                                <span class="stat-number stat-counter" data-target="3" data-prefix="Year ">Year 0</span>
+                                <span class="stat-label">IT Student, Beltei Int. Univ.</span>
+                            </div>
+                            <div class="stat-card reveal-item">
+                                <span class="stat-number stat-counter" data-target="5" data-suffix="+">0+</span>
+                                <span class="stat-label">Full-Stack Projects</span>
+                            </div>
+                            <div class="stat-card reveal-item">
+                                <span class="stat-number">EN / KH</span>
+                                <span class="stat-label">English & Khmer Fluent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-right reveal-item">
+                        <p class="about-text-lead">Year 3 IT student at Beltei International University in Phnom Penh. I build full-stack projects, but the part I actually obsess over is the frontend: clean, minimal, and detail-heavy. I'll rewrite a button's hover state five times before I'm happy with it. AI tools are part of how I actually work now too — I use them to move faster through Implementing       , pair them with things like Figma's MCP integration to go from design to code quicker, and they help me get things done with good productivity without cutting corners.                        </p>
+                        <p class="about-text-body">
+
+I spend a lot of time testing new tools just to stay current — half research, half just liking the process. I wouldn't call myself an expert at any of this yet, I'm still a student figuring it out, but I do like pretending I already a real dev while I do it.                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Expand Visual Showcase (ScrollExpand Component) -->
+            <div class="scroll-expand" id="aboutScrollExpand">
+                <div class="scroll-expand__track" id="aboutExpandTrack">
+                    <div class="scroll-expand__stage" id="aboutExpandStage">
+                        <div class="scroll-expand__frame" id="aboutExpandFrame">
+                            <picture>
+                                <source srcset="projectIMG/about_expand.webp" type="image/webp">
+                                <img src="projectIMG/about_expand.jpg" alt="Minimalist Workspace Architecture" class="scroll-expand__media" id="aboutExpandMedia" draggable="false" loading="lazy" decoding="async">
+                            </picture>
+                            <div class="scroll-expand__scrim" id="aboutExpandScrim"></div>
+                            <div class="scroll-expand__overlay" id="aboutExpandOverlay">
+                                <span class="scroll-expand__eyebrow">DESIGN & ARCHITECTURE</span>
+                                <h3 class="scroll-expand__statement">FROM IDEA TO INTERFACE.</h3>
+                                <p class="scroll-expand__subtext">Bridging robust software architecture with clean, intuitive user experiences.</p>
+                            </div>
+                        </div>
+                        <div class="scroll-expand__hint" id="aboutExpandHint">
+                            <span>SCROLL TO EXPAND</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Technical Skills -->
+        <section id="skills" class="content-section">
+            <div class="section-container">
+                <div class="section-header reveal-item">
+                    <span class="section-tag">03 / TECHNICAL SKILLS</span>
+                    <h2 class="section-title">Technologies & Engineering Toolkit</h2>
+                    <p class="section-desc">Languages, frameworks, databases, and developer tools applied across production and projects.</p>
+                </div>
+
+                <div class="skills-matrix-grid">
+                    <div class="skills-category-card reveal-item">
+                        <h3 class="skills-cat-title">Languages & Frameworks</h3>
+                        <div class="stack-badges">
+                            <span class="stack-badge">HTML</span>
+                            <span class="stack-badge">js</span>
+                            <span class="stack-badge">CSS</span>
+                            <span class="stack-badge">C++</span>
+                            <span class="stack-badge">C#</span>
+                            <span class="stack-badge">PHP</span>
+                            <span class="stack-badge">Laravel</span>
+                            <span class="stack-badge">React</span>
+                            <span class="stack-badge">Vue.js</span>
+                            <span class="stack-badge">Python</span>
+                            <span class="stack-badge">Django</span>
+                            <span class="stack-badge">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card reveal-item">
+                        <h3 class="skills-cat-title">Databases & Backend</h3>
+                        <div class="stack-badges">
+                            <span class="stack-badge">MySQL</span>
+                            <span class="stack-badge">Oracle (PL/SQL)</span>
+                            <span class="stack-badge">SQL Server</span>
+                            <span class="stack-badge">ASP.NET Core</span>
+                            <span class="stack-badge">PostgreSQL</span>
+                            <span class="stack-badge">CloudflareR3</span>
+                            <span class="stack-badge">SQLite</span>
+                            <span class="stack-badge">RESTful APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card reveal-item">
+                        <h3 class="skills-cat-title">Frontend & Developer Tools</h3>
+                        <div class="stack-badges">
+                            <span class="stack-badge">Tailwind CSS</span>
+                            <span class="stack-badge">htmx</span>
+                            <span class="stack-badge">Alpine.js</span>
+                            <span class="stack-badge">Git & GitHub</span>
+                            <span class="stack-badge">Figma</span>
+                            <span class="stack-badge">Claude</span>
+                            <span class="stack-badge">AI Agent Workflows</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 04: Capabilities & Services -->
+        <section id="services" class="content-section">
+            <div class="section-container">
+                <div class="section-header reveal-item">
+                    <span class="section-tag">04 / CAPABILITIES</span>
+                    <h2 class="section-title">Software Engineering & Development</h2>
+                    <p class="section-desc">Practical expertise across full-stack architecture, payment systems, and responsive user interfaces.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card reveal-item">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3 class="service-title">Full-Stack Web Development</h3>
+                        <p class="service-desc">End-to-end web applications built with Laravel, Django, ASP.NET Core, React, and Vue.js with structured models and secure authentication.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card reveal-item">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        </div>
+                        <h3 class="service-title">Database Design & Modeling</h3>
+                        <p class="service-desc">Relational database schema design, normalization, complex querying, and ORM mapping across MySQL, Oracle PL/SQL, and SQL Server.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card reveal-item">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3 class="service-title">API & Payment Integrations</h3>
+                        <p class="service-desc">Implementation of third-party APIs including Telegram Bot notifications, Bakong KHQR payments, Resend email pipelines, and Cloudflare R2 storage.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card reveal-item">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <h3 class="service-title">Minimalist UI & Frontend Craft</h3>
+                        <p class="service-desc">Clean, accessible, and responsive user interfaces crafted with modern Tailwind CSS, htmx polling, and crisp typographic hierarchies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 05: Contact -->
+        <section id="contact" class="content-section contact-section">
+            <div class="contact-mountain" aria-hidden="true">
+                <img src="projectIMG/mountain_nobg.png" alt="">
+            </div>
+            <div class="section-container">
+                <div class="contact-box reveal-item">
+                    <span class="section-tag">05 / GET IN TOUCH</span>
+                    <h2 class="contact-headline">Let's work together.</h2>
+                    <p class="contact-subheadline">Based in Phnom Penh, Cambodia. Open to software engineering roles.</p>
+
+                    <div class="email-copy-wrapper">
+                        <button class="email-copy-btn" id="emailCopyBtn" title="Click to copy email">
+                            <svg class="email-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span class="email-address">Vatanaking20@gmail.com</span>
+                            <span class="copy-badge" id="copyBadge">Copy</span>
+                        </button>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">YOUR NAME</label>
+                                <input type="text" id="name" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">YOUR EMAIL</label>
+                                <input type="email" id="email" name="email" placeholder="Email address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">MESSAGE</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your message or project inquiry..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span>Send Message</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Minimalist Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <span class="footer-brand">VATANA</span>
+                    <span class="footer-copy">Information Technology • Beltei International University, Phnom Penh</span>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+                    <a href="#hero" class="footer-link back-to-top" id="backToTop">Top</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="theme.js"></script>
+    <script src="scroll-expand.js"></script>
+    <script type="module" src="main-spline.js"></script>
+    <script type="module">
+        // High-performance conditional loader: load 3.8MB 3D physics only for desktop viewports
+        if (window.innerWidth > 900 && 'IntersectionObserver' in window) {
+            const lanyardSidebar = document.getElementById('lanyard-sidebar');
+            if (lanyardSidebar) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            import('./lanyard.bundle.js');
+                            observer.disconnect();
+                        }
+                    });
+                }, { rootMargin: '350px 0px 350px 0px' });
+                observer.observe(lanyardSidebar);
+            }
+        }
+    </script>
+</body>
+</html>
